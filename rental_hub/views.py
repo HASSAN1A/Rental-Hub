@@ -39,6 +39,35 @@ def profile(username):
 @login_required
 def update_profile(username):
     user = User.query.filter_by(username = username).first()
+    if user is None:
+        abort(404)
+
+    form = UpdateProfile()
+
+    if form.validate_on_submit():
+        user.bio = form.bio.data
+        db.session.add(user)
+        db.session.commit()
+
+        flash('User bio updated')
+
+        return redirect(url_for('rental_hub.profile',username=user.username))
 
 
     return render_template('profile/update.html',user=user,form =form)
+
+
+
+@rental_hub.route('/profile/<username>/update/pic',methods= ['POST'])
+@login_required
+def update_pic(username):
+    user = User.query.filter_by(username = username).first()
+    if 'photo' in request.files:
+        filename = photos.save(request.files['photo'])
+        path = f'photos/{filename}'
+        user.profile_pic_path = path
+        db.session.commit()
+
+        flash('User pic updated')
+        
+    return redirect(url_for('rental_hub.update_profile',username=username))  
