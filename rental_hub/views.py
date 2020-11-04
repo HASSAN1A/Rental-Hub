@@ -17,3 +17,18 @@ def index():
     articles=Article.get_all_articles()
     popular=Article.query.order_by(Article.article_upvotes.desc()).limit(3).all()
     return render_template('index.html',quotes=quotes,articles=articles,popular=popular)
+
+
+@rental_hub.route('/profile/<username>')
+@login_required
+def profile(username):
+
+    '''
+    View profile page function that returns the profile details of the current user logged in
+    '''
+    user = User.query.filter_by(username = username).first()
+    
+    if user is None:
+        abort(404)
+ 
+    return render_template("profile/profile.html", user = user)
