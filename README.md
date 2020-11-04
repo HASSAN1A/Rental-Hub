@@ -1,6 +1,6 @@
 
 #  Rental-Hub
-### 31.10.2020
+### 
 ####  A Python Flask CRUD web application for sharing houses.
 
 ![alt text](app.png)
