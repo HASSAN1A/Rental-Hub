@@ -49,3 +49,37 @@ class User(UserMixin,db.Model):
         self.id =id
         self.quote_text = quote_text
         self.quote_author = quote_author       
+
+class Article(db.Model):
+
+    'Article model schema'
+    
+    __tablename__ = 'articles'
+
+    id = db.Column(db.Integer,primary_key = True)
+    article_title = db.Column(db.String)
+    article_body = db.Column(db.String)
+    article_tag = db.Column(db.String)
+    article_cover_path = db.Column(db.String())
+    article_comments_count = db.Column(db.Integer, default=0)
+    posted = db.Column(db.DateTime,default=datetime.utcnow)
+    article_upvotes = db.Column(db.Integer, default=0)
+    article_downvotes = db.Column(db.Integer, default=0)
+    user_id = db.Column(db.Integer,db.ForeignKey("users.id"))
+    comments = db.relationship('Comment',backref = 'article',lazy = "dynamic")
+
+    def save_article(self):
+        db.session.add(self)
+        db.session.commit()
+
+
+    @classmethod
+    def get_all_articles(cls):
+        articles = Article.query.order_by(Article.posted.desc()).all()
+        return articles
+
+    @classmethod
+    def get_user_articles(cls,id):
+        articles = Article.query.filter_by(user_id=id).order_by(Article.posted.desc()).all()
+        return articles          
+
