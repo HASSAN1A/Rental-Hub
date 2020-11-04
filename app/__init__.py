@@ -30,5 +30,17 @@ def create_app(config_name):
   db.init_app(app)
   login_manager.init_app(app)
   mail.init_app(app)
+  
   # configure UploadSet
   configure_uploads(app,photos)
+
+  # Registering the blueprints
+  from .rental_hub import rental_hub as rental_hub_blueprint
+  app.register_blueprint(rental_hub_blueprint)
+
+  from .auth import auth as auth_blueprint
+  app.register_blueprint(auth_blueprint,url_prefix = '/authenticate')
+
+ 
+
+  return app
