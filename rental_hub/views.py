@@ -171,5 +171,15 @@ def delete_comment(comment_id,article_id):
     db.session.add(article)
     db.session.commit()
     flash('You deleted a comment')
-    return redirect(url_for('rental_hub.article_details',article_id=article_id))      
+    return redirect(url_for('rental_hub.article_details',article_id=article_id))  
+
+
+@rental_hub.route('/article/delete/<article_id>')
+@login_required
+def delete_article(article_id):
+  article = Article.query.get(article_id)
+  db.session.delete(article)
+  db.session.commit()
+  flash('You deleted an article')
+  return redirect(url_for('rental_hub.index'))
  
