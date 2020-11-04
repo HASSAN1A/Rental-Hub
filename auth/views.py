@@ -7,6 +7,16 @@ from .forms import LoginForm,RegistrationForm
 from ..email import mail_message
 
 
+@auth.route('/login',methods=['GET','POST'])
+def login():
+    login_form = LoginForm()
+
+    title = "Rental login"
+    return render_template('auth/login.html',login_form = login_form,title=title)
+
+
+    
+
 @auth.route('/register',methods = ["GET","POST"])
 def register():
     form = RegistrationForm()
