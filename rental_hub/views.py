@@ -71,3 +71,63 @@ def update_pic(username):
         flash('User pic updated')
         
     return redirect(url_for('rental_hub.update_profile',username=username))  
+
+
+
+@rental_hub.route('/article/new',methods= ['GET','POST'])
+@login_required
+def new_article():
+    if request.method=='POST':
+        article_title=request.form['title']
+        article_body=request.form['body']
+        article_tag=request.form['tag']
+        filename = photos.save(request.files['photo'])
+        article_cover_path=f'photos/{filename}'
+        
+        new_article=Article(article_title=article_title,article_body=article_body,article_tag=article_tag,article_cover_path=article_cover_path,user=current_user)
+        new_article.save_article()
+
+        flash('Article added')
+        return redirect(url_for('rental_hub.index'))
+
+    return render_template('new_article.html') 
+
+@rental_hub.route('/articles/tag/<tag>')
+@login_required
+def article_by_tag(tag):
+
+    '''
+    View root page function that returns pitch category page with pitches from category selected
+    '''
+    articles=Article.query.filter_by(article_tag=tag).order_by(Article.posted.desc()).all()
+    
+    return render_template('article_by_tag.html',articles=articles,tag=tag)  
+
+@rental_hub.route('/article_details/<article_id>', methods = ['GET','POST'])
+@login_required
+def article_details(article_id):
+
+    '''
+    View article details function that returns article_details and comment form
+    '''
+
+    form = CommentForm()
+    article=Article.query.get(article_id)
+    comments=Comment.query.filter_by(article_id=article_id).order_by(Comment.posted.desc()).all()
+    
+    if form.validate_on_submit():
+        comment = form.comment.data
+        
+        # Updated comment instance
+        new_comment = Comment(comment=comment,user=current_user,article=article)
+
+        # save review method
+        new_comment.save_comment()
+        article.article_comments_count = article.article_comments_count+1
+
+        db.session.add(article)
+        db.session.commit()
+        flash('Comment posted')
+        return redirect(url_for('rental_hub.article_details',article_id=article_id))
+
+    return render_template('article_details.html',comment_form=form,article=article,comments=comments)  
