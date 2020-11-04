@@ -39,3 +39,13 @@ class User(UserMixin,db.Model):
 
     def __repr__(self):
         return f'User {self.username}'
+
+ class Quote:
+    '''
+    Quote class to define Quote Objects
+    '''
+
+    def __init__(self,id,quote_text,quote_author):
+        self.id =id
+        self.quote_text = quote_text
+        self.quote_author = quote_author       
