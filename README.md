@@ -1,7 +1,7 @@
 
 #  Rental-Hub
 ### 31.10.2020
-####  A Python Flask CRUD web application for sharing blogs.
+####  A Python Flask CRUD web application for sharing houses.
 
 ![alt text](app.png)
 
@@ -9,7 +9,7 @@
 This is a flask multi-user blog application where a user can sign up,log in post and delete blog articles,comment on articles and also get inspired by random prgramming quotes.
 
 
-#### Live link : https://hassanblog.herokuapp.com/
+#### Live link : 
 
 
 
