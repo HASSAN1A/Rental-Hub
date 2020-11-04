@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{%block content%}
+<div class="new-article mt-5">
+  <p class="h4 mb-4 text-center">New House</p>
+  <form class="article-form m-auto" action="" method="post" enctype = "multipart/form-data">
+    <div class="form-group">
+      <label for="article_title">House Type</label>
+      <input type="text" class="form-control" name="title" id="article_title" placeholder="Article Title" required>
+    </div>
+    <div class="form-group">
+      <label for="article_body">House Description</label>
+      <textarea class="form-control" name="body" id="article_body" rows="3" placeholder="Write Article" required></textarea>
+    </div>
+    <div class="form-group">
+      <label for="article_tag">Cloud Tag</label>
+      <select class="form-control" name="tag" id="article_tag" required>
+        <option value="umoja">Umoja</option>
+        <option value="kasarani">Kasarani</option>
+        <option value="karen">Karen</option>
+        <option value="runda">Runda</option>
+        <option value="mlolongo">Mlolongo</option>
+       
+        <option value="south c">South C</option>
+        <option value="kibera">Kibera</option>
+        <option value=" Others">Others</option>
+      </select>
+    </div>
+    <div class="file-field">
+      <div class="btn btn-primary btn-sm float-left">
+        <span>Choose House Cover</span><br><br>
+        <input  type="file" name="photo" id="photo" required>
+      </div>
+    </div>
+    <div class="form-group">
+        <input class="form-control"  type="submit" value="POST A HOUSE">
+    </div>
+  </form>  
+</div>
+{%endblock%}

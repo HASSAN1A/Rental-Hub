@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+{%block content%}
+<section class="daily-quotes mt-4 ">
+  <div id="carousel-example" class="carousel slide" data-ride="carousel">
+    <div style="min-height:33vh" class="carousel-inner row w-100 mx-0" role="listbox">
+      <div  class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3 active"  data-interval="2000">
+        <div class="card text-center card-cascade wider mb-1">
+          <div class="view view-cascade gradient-card-header blue-gradient overlay waves-light">
+            <img class="card-img-top" src="/static/img/aaa.jpg"
+            alt="Card image cap">
+          </div>
+          <div class="card-body card-body-cascade text-center">
+            <p><cite><em>“They kick you when you’re down, but they wanna kick it when you’re up.”  </em><br> – Hassan Juma</cite></p> 
+          </div>
+        </div>  
+      </div>
+      {% for quote in quotes %}
+      <div  class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3"  data-interval="2000">
+        <div class="card text-center card-cascade wider mb-1">
+          <div class="view view-cascade gradient-card-header blue-gradient overlay waves-light">
+            <img class="card-img-top" src="/static/img/bbb.jpg"
+            alt="Card image cap">
+          </div>
+          <div class="card-body card-body-cascade text-center">
+            <p><cite><em>“{{quote.quote_text|truncate(90)}}”  </em><br> – {{quote.quote_author}}</cite></p> 
+          </div>
+        </div>  
+      </div>
+      {%endfor%}
+    </div>
+  </div>
+</section>
+      
+<div class="row mt-4">
+  <div class="col-lg-9 col-md-8 col-sm-12">
+    <div class="articles row">
+      {%if articles%}
+        {%for article in articles%}
+        <div class="col-lg-4 col-md-6 col-sm-12 mx-auto mt-1 mb-1">
+          <div class="card">
+            <div class="view overlay">
+              <img style="height: 30vh;width: 100%;" class="pt-2 pl-2 pr-2 rounded img-fluid" src="{{url_for('static',filename=article.article_cover_path)}}"
+                alt="Card image cap">
+              <a href="#!">
+                <div class="mask rgba-white-slight"></div>
+              </a>
+            </div>
+            <div class="card-body pt-1 mt-0">
+              <div class="text-center">
+                <a href="#" class="badge badge-default">{{article.user.username}}</a>
+                <a href="{{url_for('rental_hub.article_by_tag',tag=article.article_tag)}}" class="badge badge-info">{{article.article_tag}}</a>
+              </div>
+              <div class="text-center mb-1">
+                <a href="{{url_for('rental_hub.article_details',article_id=article.id)}}"><span class="badge badge-success ml-2"> <i class="far fa-thumbs-up">{{article.article_upvotes}}</i></span></a>
+                <a href="{{url_for('rental_hub.article_details',article_id=article.id)}}"><span class="badge badge-danger ml-2"> <i class="far fa-thumbs-down">{{article.article_downvotes}}</i></span></a>
+                <a href="{{url_for('rental_hub.article_details',article_id=article.id)}}"><span class="badge badge-info ml-2"> <i class="far fa-comment">{{article.article_comments_count}} </i></span></a> 
+                <p class="mb-0 mt-3"><i class="far fa-calendar mr-2"></i>{{article.posted.strftime("%b %d %Y %H:%M")}}</p>
+              </div>
+              <h6 class="card-title">{{article.article_title}}</h6>
+              <p class="card-text">{{article.article_body|truncate(30)}}</p>
+            </div>
+            <div class="card-footer text-muted text-center">
+              <a href="{{url_for('rental_hub.article_details',article_id=article.id)}}" class="black-text">
+                <h6>Read More <i class="fas fa-angle-double-right"></i></h6>
+              </a>
+            </div>
+
+          </div>
+        </div>
+        {%endfor%}
+      {%else%}
+        <div class="card article mx-4 mb-3">
+          <div class="card-body">
+            <h4 class="card-header"><i class="far fa-angry mr-2"></i>Sorry, no article posted yet!!</h4>
+          </div>
+        </div>
+      {%endif%}   
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-4 col-sm-12">
+    <h5 class="my-2"><strong>Tag Cloud</strong> </h5>
+    <div class="tags">
+      <a href="#"><span class="badge badge-pill badge-default">ALL</span></a>
+      <a href="{{url_for('rental_hub.article_by_tag',tag='umoja')}}"><span class="badge badge-pill badge-primary">UMOJA</span></a>
+      <a href="{{url_for('rental_hub.article_by_tag',tag='kasarani')}}"><span class="badge badge-pill badge-secondary">KASARANI</span></a>
+      <a href="{{url_for('rental_hub.article_by_tag',tag='karen')}}"><span class="badge badge-pill badge-success">KAREN</span></a>
+      <a href="{{url_for('rental_hub.article_by_tag',tag='runda')}}"><span class="badge badge-pill badge-info">RUNDA</span></a>
+      <a href="{{url_for('rental_hub.article_by_tag',tag='mlolongo')}}"><span class="badge badge-pill badge-warning">MLOLONGO</span></a>
+      <a href="{{url_for('rental_hub.article_by_tag',tag='south c')}}"><span class="badge badge-pill badge-danger">SOUTH C</span></a>
+      <a href="{{url_for('rental_hub.article_by_tag',tag='kibera')}}"><span class="badge badge-pill badge-default">KIBERA</span></a>
+      <a href="{{url_for('rental_hub.article_by_tag',tag='Others')}}"><span class="badge badge-pill badge-light">OTHERS</span></a>
+    </div>
+    
+
+    <h5 class="my-2"><strong>Popular Posts</strong> </h5>
+    {%for article in popular%}
+    <div class="card card-image mb-2" style="background-image: url({{url_for('static',filename=article.article_cover_path)}});">
+
+      <div class="text-white text-center rgba-black-strong py-3 px-2">
+        <div>
+          <h5 class="pink-text"><i class="fas fa-chart-pie"></i> {{article.article_title}}</h5>
+          <p>{{article.article_body|truncate(30)}}</p>
+          <a class="btn btn-pink" href="{{url_for('rental_hub.article_details',article_id=article.id)}}"><i class="fas fa-clone left"></i> Read more ...</a>
+        </div>
+      </div>
+  
+    </div>
+    {%endfor%}
+
+
+  </div>
+</div>
+
+
+{%endblock%}

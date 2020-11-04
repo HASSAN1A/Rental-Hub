@@ -1,0 +1,7 @@
+Hello {{user.username}}
+Welcome to My rental_hub!
+Start your journey today with us by buyining,selling or renting your first house with us.
+
+Regards,
+
+Hassan
