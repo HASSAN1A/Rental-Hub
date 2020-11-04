@@ -1,4 +1,4 @@
-from flask import abort
+ from flask import abort
 import urllib.request,json
 from .models import Quote
 
