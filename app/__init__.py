@@ -24,3 +24,11 @@ def create_app(config_name):
 
  # Creating the app configurations
   app.config.from_object(config_options[config_name])
+
+  # Initializing flask extensions
+  bootstrap.init_app(app)
+  db.init_app(app)
+  login_manager.init_app(app)
+  mail.init_app(app)
+  # configure UploadSet
+  configure_uploads(app,photos)
