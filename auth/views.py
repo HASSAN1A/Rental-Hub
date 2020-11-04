@@ -10,20 +10,23 @@ from ..email import mail_message
 @auth.route('/login',methods=['GET','POST'])
 def login():
     login_form = LoginForm()
+    
 
     title = "Rental login"
     return render_template('auth/login.html',login_form = login_form,title=title)
 
-
-    
-
 @auth.route('/register',methods = ["GET","POST"])
 def register():
     form = RegistrationForm()
+    if form.validate_on_submit():
+        user = User(email = form.email.data, username = form.username.data,password = form.password.data,profile_pic_path= 'photos/unknown.png')
+        db.session.add(user)
+        db.session.commit()
 
-     title = "New Account"
-    return render_template('auth/register.html',registration_form = form,title=title) 
-
+        mail_message("Welcome to My Rental","email/welcome_user",user.email,user=user)
+        return redirect(url_for('auth.login'))
+    title = "New Account"
+    return render_template('auth/register.html',registration_form = form,title=title)    
 
 @auth.route('/logout')
 @login_required
