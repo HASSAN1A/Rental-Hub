@@ -32,3 +32,13 @@ def profile(username):
         abort(404)
  
     return render_template("profile/profile.html", user = user)
+
+
+
+@rental_hub.route('/profile/<username>/update',methods = ['GET','POST'])
+@login_required
+def update_profile(username):
+    user = User.query.filter_by(username = username).first()
+
+
+    return render_template('profile/update.html',user=user,form =form)
