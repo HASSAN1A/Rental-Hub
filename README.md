@@ -1,12 +1,12 @@
 
 #  Rental-Hub
 ### 
-####  A Python Flask CRUD web application for sharing houses.
+####  A Python Flask CRUD web application where users can look for house for rent or buy .
 
 ![alt text](app.png)
 
 ## Description
-This is a flask multi-user blog application where a user can sign up,log in post and delete blog articles,comment on articles and also get inspired by random prgramming quotes.
+This is a flask multi-user Rental Hub web application where a user can sign up,log in post  houses for rent and sell,comment on the houses and also get inspired by random business quotes.
 
 
 #### Live link : 
@@ -18,24 +18,24 @@ This is a flask multi-user blog application where a user can sign up,log in post
 
 ## User Stories
 
-- A user I can view various articles on the homepage of the application.
-- A user can select a pitch and see pitch details from the selected pitch in the application.
-- A user can search for a article on the homepage.
-- A user can see the image, description,author and the time a article was created.
-- A user can click on an article and read the full areticle on the source website.
+- A user I can view various houses on the homepage of the application.
+- A user can select a house and see house details from the selected house in the application.
+- A user can search for a house on the homepage.
+- A user can see the image, description,user and the time a house was created.
+- A user can click on an house and read the full house on the source website.
 
 ## Behaviour Driven Development (BDD)
 
 | Behaviour                                                                                        |                                                                      Input                                                                       |                                                                                                 Output |
 | ------------------------------------------------------------------------------------------------ | :----------------------------------------------------------------------------------------------------------------------------------------------: | -----------------------------------------------------------------------------------------------------: |
-| Page loads, user arrives in the landing page, a list of all available blog category is displayed. | The user can click on any particular list group item to be directed to a separate page containing pitch highlights pitched by the same publisher. | On clicking the "create an article" button, the user is redirected to the main login and signup to allow you create an article of your choice. |  |
+| Page loads, user arrives in the landing page, a list of all available house category is displayed. | The user can click on any particular list group item to be directed to a separate page containing pitch highlights pitched by the same publisher. | On clicking the "post a house" button, the user is redirected to the main login and signup to allow you create an house for sale. |  |
 
 ## Features
 
 Here are the summary:
 
-- A landing page showing blog categories.
-- Clickable blogs which direct the user to a page with article highlights from the particular blog.
+- A landing page showing house categories.
+- Clickable blohousegs which direct the user to a page with article highlights from the particular house.
 
 
 ## Requirements
@@ -73,7 +73,7 @@ If you'd like to request a new function, feel free to do so by opening an issue 
 10. [Quotes Api](http://quotes.stormconsultancy.co.uk/random.json) : For requesting
 11. [Font Awesome](fontawesome.com) : The world's most popular and easiest to use icon set just got an upgrade. More icons. More styles.
 12. [jQuery 3](https://jquery.com/) : For special effects.
-
+13. [Figma](https://www.figma.com/file/Z9e20gLR7K6R8w7zPhM9Wc/Quotes?node-id=0%3A1) - Blueprint for designing the web app.
 
 ## TEAM
 
