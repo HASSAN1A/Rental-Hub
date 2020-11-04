@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block content %}
+<div class="profile mt-5">
+  <div class="card testimonial-card">
+
+    <!-- Background color -->
+    <div class="card-up aqua-gradient"></div>
+  
+    <!-- Avatar -->
+    <div class="avatar mx-auto white">
+      <img src="{{url_for('static',filename=user.profile_pic_path)}}" onerror="this.onerror=null;this.src='https://www.iconfinder.com/data/icons/user-pictures/100/unknown-512.png';" class="rounded-circle"
+      alt="Profile Pic">
+    </div>
+  
+    <!-- Content -->
+    <div class="card-body">
+      <div class="container myb-3">
+        {{wtf.quick_form(form)}}
+      </div>
+
+      {% if user == current_user %}
+        <div class="container update-pic mt-3">
+          <p><i class="far fa-user mr-3"></i>Update Profile Pic</p>
+          <form action="{{url_for('rental_hub.update_pic',username=user.username)}}" method="post" enctype = "multipart/form-data">
+            <div class="file-field">
+              <div class="btn btn-primary btn-sm float-left">
+                <span>Choose file</span>
+                <input type="file" name="photo" required>
+                <input class="ml-4" type="submit" value="UPLOAD PIC">
+              </div>
+            </div>
+          </form>
+        </div>
+      {% endif %}
+
+    </div>
+  
+  </div>
+</div>
+
+{% endblock %}
