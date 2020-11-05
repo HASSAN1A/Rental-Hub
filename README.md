@@ -9,7 +9,7 @@
 This is a flask multi-user Rental Hub web application where a user can sign up,log in post  houses for rent and sell,comment on the houses and also get inspired by random business quotes.
 
 
-#### Live link : rentalhub.herokuapp.com/
+#### Get Live link here : [USAGE](https://rentalhub.herokuapp.com/)
 
 
 
