@@ -73,7 +73,7 @@ If you'd like to request a new function, feel free to do so by opening an issue 
 10. [Quotes Api](http://quotes.stormconsultancy.co.uk/random.json) : For requesting
 11. [Font Awesome](fontawesome.com) : The world's most popular and easiest to use icon set just got an upgrade. More icons. More styles.
 12. [jQuery 3](https://jquery.com/) : For special effects.
-13. [Figma](https://www.figma.com/file/Z9e20gLR7K6R8w7zPhM9Wc/Quotes?node-id=0%3A1) - Blueprint for designing the web app.
+13. [Figma](https://www.figma.com/file/iTndFXbWHuGkZak60bXr2h/Rental-Hub?node-id=0%3A1) - Blueprint for designing the web app.
 
 ## TEAM
 
@@ -81,7 +81,7 @@ If you'd like to request a new function, feel free to do so by opening an issue 
 [Lekam Charity ](https://github.com/LekamCharity)
 [Kennedy Kiptoo ](https://github.com/kiptoo-097)
 [Collins Kipkoech ](https://github.com/kipkoech-msojo)
-[Dorcas Wanjiku ](https://github.com/DorcasWanjikuA)
+[Dorcas Wanjiku ](https://github.com/DorcasWanjiku)
 
 
 ## [License](https://github.com/HASSAN1A/Rental-Hub/blob/master/LICENSE.md)
