@@ -9,7 +9,7 @@
 This is a flask multi-user Rental Hub web application where a user can sign up,log in post  houses for rent and sell,comment on the houses and also get inspired by random business quotes.
 
 
-#### Live link : 
+#### Live link : rentalhub.herokuapp.com/
 
 
 
@@ -28,14 +28,14 @@ This is a flask multi-user Rental Hub web application where a user can sign up,l
 
 | Behaviour                                                                                        |                                                                      Input                                                                       |                                                                                                 Output |
 | ------------------------------------------------------------------------------------------------ | :----------------------------------------------------------------------------------------------------------------------------------------------: | -----------------------------------------------------------------------------------------------------: |
-| Page loads, user arrives in the landing page, a list of all available house category is displayed. | The user can click on any particular list group item to be directed to a separate page containing pitch highlights pitched by the same publisher. | On clicking the "post a house" button, the user is redirected to the main login and signup to allow you create an house for sale. |  |
+| Page loads, user arrives in the landing page, a list of all available house category is displayed. | The user can click on any particular list group item to be directed to a separate page containing house highlights houses by the same user. | On clicking the "post a house" button, the user is redirected to the main login and signup to allow you create an house for sale. |  |
 
 ## Features
 
 Here are the summary:
 
 - A landing page showing house categories.
-- Clickable blohousegs which direct the user to a page with article highlights from the particular house.
+- Clickable houses which direct the user to a page with article highlights from the particular house.
 
 
 ## Requirements
