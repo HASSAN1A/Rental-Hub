@@ -78,6 +78,11 @@ If you'd like to request a new function, feel free to do so by opening an issue 
 ## TEAM
 
 [Hassan Juma ](https://github.com/HASSAN1A)
+[Lekam Charity ](https://github.com/LekamCharity)
+[Kennedy Kiptoo ](https://github.com/kiptoo-097)
+[Collins Kipkoech ](https://github.com/kipkoech-msojo)
+[Dorcas Wanjiku ](https://github.com/DorcasWanjikuA)
+
 
 ## [License](https://github.com/HASSAN1A/Rental-Hub/blob/master/LICENSE.md)
 
