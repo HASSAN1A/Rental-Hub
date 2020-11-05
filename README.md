@@ -77,11 +77,11 @@ If you'd like to request a new function, feel free to do so by opening an issue 
 
 ## TEAM
 
-[Hassan Juma ](https://github.com/HASSAN1A)
-[Lekam Charity ](https://github.com/LekamCharity)
-[Kennedy Kiptoo ](https://github.com/kiptoo-097)
-[Collins Kipkoech ](https://github.com/kipkoech-msojo)
-[Dorcas Wanjiku ](https://github.com/DorcasWanjiku)
+1. [Hassan Juma ](https://github.com/HASSAN1A)
+2. [Lekam Charity ](https://github.com/LekamCharity)
+3. [Kennedy Kiptoo ](https://github.com/kiptoo-097)
+4. [Collins Kipkoech ](https://github.com/kipkoech-msojo)
+5. [Dorcas Wanjiku ](https://github.com/DorcasWanjiku)
 
 
 ## [License](https://github.com/HASSAN1A/Rental-Hub/blob/master/LICENSE.md)
